@@ -51,9 +51,7 @@ class _DepartmentFilterState extends State<DepartmentFilter> {
                     all = true;
                     departMentId = 0;
                   });
-                  checkProvider.assignValueShops(
-                      shops: shopsProvider.shops
-                         );
+                  checkProvider.assignValueShops(shops: shopsProvider.shops);
                   for (int i = 0;
                       i < departMentProvider.departments.length;
                       i++) {
@@ -68,79 +66,79 @@ class _DepartmentFilterState extends State<DepartmentFilter> {
                 titleColor:
                     all ? Theme.of(context).accentColor : Colors.black87,
               ),
-              ListView.builder(
-                  shrinkWrap: true,
-                  reverse: true,
-                  itemCount:
-                      Provider.of<DepartMentProvider>(context, listen: true)
-                          .departments
-                          .length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (c, index) {
-                    return AnimationConfiguration.staggeredList(
-                      position: index,
-                      delay: Duration(milliseconds: 400),
-                      child: SlideAnimation(
-                        duration: Duration(milliseconds: 400),
-                        horizontalOffset: 50,
-                        child: FadeInAnimation(
-                          child: Filtter(
-                            title: departMentProvider.departments[index].name,
-                            onTap: () {
-                              setState(() {
-                                all = false;
-                                departMentProvider.departments[index].selected =
-                                    true;
-                                for (int i = 0;
-                                    i < departMentProvider.departments.length;
-                                    i++) {
-                                  setState(() {
-                                    if (i == index) {
-                                      departMentProvider
-                                          .departments[i].selected = true;
-                                      departMentId =
-                                          departMentProvider.departments[i].id;
-                                    } else {
-                                      Provider.of<DepartMentProvider>(context,
-                                              listen: false)
-                                          .departments[i]
-                                          .selected = false;
-                                    }
-                                    checkProvider.assignValueShops(
-                                        shops: shopsProvider.shops
-                                            .where((e) =>
-                                                e.departmentId ==
-                                                    departMentId
-                                              )
-                                            .toList());
-                                  });
-                                }
-                              });
-                            },
-                            backgroundColor: Provider.of<DepartMentProvider>(
-                                        context,
-                                        listen: true)
-                                    .departments[index]
-                                    .selected
-                                ? Theme.of(context).primaryColor
-                                : null,
-                            elevation: Provider.of<DepartMentProvider>(context,
-                                        listen: true)
-                                    .departments[index]
-                                    .selected
-                                ? 3
-                                : null,
-                            titleColor: Provider.of<DepartMentProvider>(context,
-                                        listen: true)
-                                    .departments[index]
-                                    .selected
-                                ? Theme.of(context).accentColor
-                                : Colors.black54,
-                          ),
-                        ),
-                      ),
-                    );
-                  }),
+              // ListView.builder(
+              //     shrinkWrap: true,
+              //     reverse: true,
+              //     itemCount:
+              //         Provider.of<DepartMentProvider>(context, listen: true)
+              //             .departments
+              //             .length,
+              //     scrollDirection: Axis.horizontal,
+              //     itemBuilder: (c, index) {
+              //       return AnimationConfiguration.staggeredList(
+              //         position: index,
+              //         delay: Duration(milliseconds: 400),
+              //         child: SlideAnimation(
+              //           duration: Duration(milliseconds: 400),
+              //           horizontalOffset: 50,
+              //           child: FadeInAnimation(
+              //             child: Filtter(
+              //               title: departMentProvider.departments[index].name,
+              //               onTap: () {
+              //                 setState(() {
+              //                   all = false;
+              //                   departMentProvider.departments[index].selected =
+              //                       true;
+              //                   for (int i = 0;
+              //                       i < departMentProvider.departments.length;
+              //                       i++) {
+              //                     setState(() {
+              //                       if (i == index) {
+              //                         departMentProvider
+              //                             .departments[i].selected = true;
+              //                         departMentId =
+              //                             departMentProvider.departments[i].id;
+              //                       } else {
+              //                         Provider.of<DepartMentProvider>(context,
+              //                                 listen: false)
+              //                             .departments[i]
+              //                             .selected = false;
+              //                       }
+              //                       checkProvider.assignValueShops(
+              //                           shops: shopsProvider.shops
+              //                               .where((e) =>
+              //                                   e.departmentId ==
+              //                                       departMentId
+              //                                 )
+              //                               .toList());
+              //                     });
+              //                   }
+              //                 });
+              //               },
+              //               backgroundColor: Provider.of<DepartMentProvider>(
+              //                           context,
+              //                           listen: true)
+              //                       .departments[index]
+              //                       .selected
+              //                   ? Theme.of(context).primaryColor
+              //                   : null,
+              //               elevation: Provider.of<DepartMentProvider>(context,
+              //                           listen: true)
+              //                       .departments[index]
+              //                       .selected
+              //                   ? 3
+              //                   : null,
+              //               titleColor: Provider.of<DepartMentProvider>(context,
+              //                           listen: true)
+              //                       .departments[index]
+              //                       .selected
+              //                   ? Theme.of(context).accentColor
+              //                   : Colors.black54,
+              //             ),
+              //           ),
+              //         ),
+              //       );
+              //     }),
             ],
           ),
         ),

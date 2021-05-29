@@ -12,16 +12,14 @@ class ShopItem extends StatelessWidget {
     @required this.productQuantity,
     @required this.distance,
     @required this.view,
-
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:  onTap,
-          
+      onTap: onTap,
       child: Card(
-        color: Colors.white ,
+        color: Colors.white,
         elevation: 10,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
@@ -78,7 +76,9 @@ class ShopItem extends StatelessWidget {
                         children: [
                           // shop Name
                           Text(
-                            shopName.length > 20 ? shopName.substring(0,20) + "..":shopName  ,
+                            shopName.length > 20
+                                ? shopName.substring(0, 20) + ".."
+                                : shopName,
                             style: TextStyle(
                               color: Colors.black87,
                               fontSize: 15,
@@ -117,30 +117,27 @@ class ShopItem extends StatelessWidget {
                           // Product Quantity
                           Row(
                             children: [
-                              Text(
-                                "عدد الزيارات: ",
-                                style: Theme.of(context).textTheme.bodyText1
-                               
-                              ),
-                              Text(
-                                "$productQuantity زيارة",
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
+                              Text("********** ",
+                                  style: Theme.of(context).textTheme.bodyText1),
+                              // Text(
+                              //   "$productQuantity زيارة",
+                              //   style: TextStyle(
+                              //     color: Colors.black87,
+                              //     fontSize: 12,
+                              //     fontWeight: FontWeight.w600,
+                              //   ),
+                              // ),
                             ],
                           ),
                           //  View CVount
-                          Text(
-                            "$view ج",
-                            style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
+                          // Text(
+                          //   "$view ج",
+                          //   style: TextStyle(
+                          //     color: Colors.black87,
+                          //     fontSize: 12,
+                          //     fontWeight: FontWeight.w600,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ],

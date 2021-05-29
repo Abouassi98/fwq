@@ -3,6 +3,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:graduation_project/provider/checkProvider.dart';
 import 'package:graduation_project/Screens/shopItem.dart';
 import 'package:graduation_project/provider/shopsProvider.dart';
+import 'package:graduation_project/screen.dart';
 import 'package:provider/provider.dart';
 import '../MainWidgets/customScrollPhysics.dart';
 import '../MainWidgets/customSliderImage.dart';
@@ -18,9 +19,9 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
   String item;
   bool isInit = true;
   @override
-  void didChangeDependencies() async{
+  void didChangeDependencies() async {
     if (isInit) {
-     await Provider.of<ShopsProvider>(context, listen: false)
+      await Provider.of<ShopsProvider>(context, listen: false)
           .getShops(0, null, context);
       Provider.of<CheckProvider>(context, listen: false).assignValueShops(
           shops: Provider.of<ShopsProvider>(context, listen: false).shops);
@@ -37,10 +38,11 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
         children: [
           Container(
             height: 250,
+            color: Colors.blue,
             child: Stack(
               alignment: Alignment.topCenter,
               children: [
-                CustomSliderImage(),
+                // CustomSliderImage(),
 
                 // CustomSearchBar(),
               ],
@@ -73,7 +75,10 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                 distance: "0",
                                 productQuantity: 15.toString(),
                                 view: 100.toString(),
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => Screen()));
+                                },
                               ),
                             ),
                           ),

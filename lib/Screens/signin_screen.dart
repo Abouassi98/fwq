@@ -9,35 +9,16 @@ class SigninScreen extends StatelessWidget {
   final _form = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(5, 89, 157, 1),
       body: Form(
         autovalidateMode: AutovalidateMode.always,
         key: _form,
         child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/aqualogo.jpg'),
-              fit: BoxFit.fill,
-            ),
-          ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   'assets/images/aqualogo.jpg',
-              //   height: 150,
-              //   width: 200,
-              //   fit: BoxFit.cover,
-              // ),
-              Text(
-                "   البرناج الافضل لتنظيم الزيارات الطبية",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.normal),
-              ),
               SizedBox(
                 height: 20,
               ),
